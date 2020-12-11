@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Jarvis | Manager</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+<style>
+  body{
+    overflow-x: hidden;
+  }
+  /* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #343a40; 
+}
+</style>
+<body class="hold-transition sidebar-mini">
+  <div class="teste" style="width: 100%;height: 30px;background-color: #343a40;-webkit-app-region: drag;border-bottom: 1px solid #4e545a !important;">
+    <div class="row">
+      <div class="col-6">
+        <li style="list-style: none;margin-left: 22px;color: rgb(148, 148, 148);">
+          <small>Desenvolvido por EzDev</small>
+        </li>
+      </div>
+      <div class="col-6">
+        <li style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
+          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-minus-square"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;"><i class="fas fa-window-maximize"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-window-close"></i></a>
+        </li>
+      </div>
+    </div>
+  </div>
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark" style="-webkit-app-region: drag;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav" style="-webkit-app-region: no-drag;">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto" style="-webkit-app-region: no-drag;">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+            class="fas fa-th-large"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="img/jarvis-info.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">Jarvis Manager</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!-- <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Starter Pages
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Active Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inactive Page</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <!-- MENU CADASTROS -->
+          <li class="nav-header">Cadastros</li>
+          
+          <li class="nav-item">
+            <a href="tarefas.html" class="nav-link">
+              <i class="nav-icon fas fa-list-ul"></i>
+              <p>
+                Tarefas
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="servicos.html" class="nav-link">
+              <i class="nav-icon fas fa-tools"></i>
+              <p>
+                Serviços
+              </p>
+            </a>
+          </li>     
+          
+          
+          <li class="nav-header">Configurações</li>
+          <li class="nav-item">
+            <a href="sysconfig.html" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Conf. do Sistema
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark" id="sys-info">Informações do Sistema</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Informações do Sistema</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1" id="cpu-icon"><i class="fas fa-microchip"></i></span>
+              <div class="info-box-content">          
+                <span class="info-box-text">Uso de CPU</span>
+                <div class="progress mb-3">
+                  <div class="progress-bar bg-danger" id="cpu-progress" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                       aria-valuemax="100" style="width: 0%;">
+                    <span class="sr-only">0% Complete</span>
+                  </div>
+                </div>
+                <span class="info-box-number" id="cpu-usage">
+                  0
+                  <small>%</small>
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-memory"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Memória Total</span>
+                <span class="info-box-number" id="mem-total">0 GB</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Memória Livre</span>
+                <span class="info-box-number" id="mem-free">0 GB</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-clock"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Sys Uptime</span>
+                <span class="info-box-number" id="sys-uptime">0d, 0h, 0m, 0s</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <div class="col-12">
+            <div class="callout callout-info">
+              <h5 id="comp-name"><i class="fas fa-desktop"></i> Nome do PC</h5>
+              <p id="cpu-os"></p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Timelime example  -->
+
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Logs</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+         
+                <div class="timeline" id="timeline-log">
+
+                </div>
+
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <div class="timeline-footer">
+                  <a class="btn btn-sm bg-info" id="btn-dellogs">Deletar logs</a>
+                </div>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2020 <a href="https://customdata.com.br">CustomData</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- monitor -->
+<script src="js/monitor.js"></script>
+
+<script>
+  const Logs = require('../Logs.js')
+  //Get Logs
+  ipcRenderer.on('legtext:get', (e, settings) => {        
+        const timeline = document.getElementById('timeline-log');     
+        if(settings === "" || typeof settings == 'undefined' ){
+          now = new Date
+          let dateLogs = '<div class="time-label"><span class="bg-info">'+now.getDate()+'-'+now.getMonth()+'-'+now.getFullYear()+'</span></div><div> <i class="fas fa-clock bg-gray"></i> <div class="timeline-item"> <span class="time"><i class="fas fa-clock"></i>Agora</span> <h3 class="timeline-header"> <a href="#">System Log</a> Sem registros </h3> <div class="timeline-body"> Não foram encontrados logs para a instância atual. Verifique se os logs estão ativos em Conf. do Sistema -> Logs -> Gerar Logs </div> </div> </div>'
+          timeline.innerHTML = dateLogs
+        }
+        else { 
+        
+        let final = [];
+        let dates = [];
+        settings = settings.replace(/;/g, " ")       
+        settings = settings.replace(/\] \[/g, "];[")
+        settings = settings.replace(/\[warn\]/g , "[warn];")
+            let vet = settings.split("_break_")     
+            for(let l = 0; l< vet.length-1; l++){
+
+                let data = vet[l].split(";")    
+                
+                 let datetime = data[0].split(" ")
+                 let tmpdate = datetime[0].replace("[", "").trim()           
+                 let tmp = tmpdate.split('-')
+                 let finaldate = tmp[2] +'-'+ tmp[1] +'-'+ tmp[0]
+                 let finaltime = datetime[1].replace("]", "")   
+
+                 if(dates.indexOf(finaldate) < 0){
+                    dates.push(finaldate.trim())
+                 }                 
+
+                  final.push({
+                          date: finaldate.trim(),
+                          time: finaltime,
+                          type: data[1],
+                          error: data[2]
+                  })   
+                              
+            }
+            dates = dates.reverse();
+            final = final.reverse();
+            let dateLogs = "";
+            for(let i = 0; i < dates.length; i++){
+              dateLogs += '<div class="time-label"><span class="bg-info">'+dates[i]+'</span></div>'              
+              let newArray =  final.filter(function(el) {
+                 return el.date == dates[i];
+              });
+              for(let l = 0; l< newArray.length; l++){
+                dateLogs += '<div> <i class="fas fa-clock bg-gray"></i> <div class="timeline-item"> <span class="time"><i class="fas fa-clock"></i>'+newArray[l]['time']+'</span> <h3 class="timeline-header"> <a href="#">System Log</a> New log registered </h3> <div class="timeline-body"> '+newArray[l]['error']+' </div> </div> </div>'
+              }
+            }
+            timeline.innerHTML = dateLogs
+
+          }
+  })
+
+  //Delete logs
+  document.getElementById('btn-dellogs').addEventListener("click",() => {
+    const logs = new Logs();
+    logs.delete()
+    ipcRenderer.send('legtext:set', 'alterado')
+  })
+
+</script>
+
+</body>
+</html>

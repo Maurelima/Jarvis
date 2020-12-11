@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Jarvis | Manager</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+</head>
+<style>
+  body {
+    overflow-x: hidden;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343a40;
+  }
+</style>
+
+<body class="hold-transition sidebar-mini">
+  <div class="teste"
+    style="width: 100%;height: 30px;background-color: #343a40;-webkit-app-region: drag;border-bottom: 1px solid #4e545a !important;">
+    <div class="row">
+      <div class="col-6">
+        <li style="list-style: none;margin-left: 22px;color: rgb(148, 148, 148);">
+          <small>Desenvolvido por EzDev</small>
+        </li>
+      </div>
+      <div class="col-6">
+        <li
+          style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
+          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-minus-square"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;"><i class="fas fa-window-maximize"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-window-close"></i></a>
+        </li>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark" style="-webkit-app-region: drag">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav" style="-webkit-app-region: no-drag;">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
+
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto" style="-webkit-app-region: no-drag;">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Call me whenever you can...</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">I got your message bro</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">The subject goes here</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+              class="fas fa-th-large"></i></a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">Jarvis Manager</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <!-- <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Starter Pages
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Active Page</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inactive Page</p>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Simple Link
+                  <!-- <span class="right badge badge-danger">New</span> -->
+                </p>
+              </a>
+            </li>
+
+            <!-- MENU CADASTROS -->
+            <li class="nav-header">Cadastros</li>
+
+            <li class="nav-item">
+              <a href="tarefas.html" class="nav-link">
+                <i class="nav-icon fas fa-list-ul"></i>
+                <p>
+                  Tarefas
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="servicos.html" class="nav-link">
+                <i class="nav-icon fas fa-tools"></i>
+                <p>
+                  Serviços
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-header">Configurações</li>
+            <li class="nav-item">
+              <a href="sysconfig.html" class="nav-link">
+                <i class="nav-icon fas fa-cog"></i>
+                <p>
+                  Conf. do Sistema
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark" id="sys-info">Gerenciamento de Tarefas</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Gerenciamento de Tarefas</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+      <style>
+        .custom-file-input~.custom-file-label::after {
+          content: "SELECIONE O EXECUTÁVEL" !important;
+          background-color: #17a2b8;
+          color: #fff;
+        }
+      </style>
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Cadastrar Tarefa</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" id="settings-tasks">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <input type="text" class="custom-file-input" name="_id" id="_id" value="0" hidden>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label for="inputFileJs">Selecione o executável</label>
+                        <div class="custom-file" id="customFile">
+                          <input type="file" class="custom-file-input" id="inputFileJs" aria-describedby="fileHelp">
+                          <label class="custom-file-label" for="inputFileJs" name="file-label" id="file-label">
+                            Clique para selecionar
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="process">Nome do Processo</label>
+                          <input type="text" class="form-control" name="process" id="process" placeholder="exemplo.exe">
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="form-group">
+                          <label for="iterval">Intervalo de execução</label>
+                          <input type="text" class="form-control" id="inttime" name="inttime"
+                            placeholder="Intervalo em segundos">
+                        </div>
+                      </div>
+                      <div class="col-lg-7">
+                        <div class="form-group">
+                          <label for="pathfile">Caminho do Arquivo</label>
+                          <input type="text" class="form-control" name="pathfile" id="pathfile" placeholder="C:\path\exemplo.exe">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <!-- time Picker -->
+                        <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                            <label>Hora de Inicio:</label>
+
+                            <div class="input-group date" id="timepicker" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="starttime"
+                                id="starttime" data-target="#timepicker" />
+                              <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                              </div>
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+                          <!-- /.form group -->
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <!-- time Picker -->
+                        <div class="bootstrap-timepicker">
+                          <div class="form-group">
+                            <label>Hora de Encerramento:</label>
+
+                            <div class="input-group date" id="timepicker1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="endtime" id="endtime"
+                                data-target="#timepicker1" />
+                              <div class="input-group-append" data-target="#timepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="far fa-clock"></i></div>
+                              </div>
+                            </div>
+                            <!-- /.input group -->
+                          </div>
+                          <!-- /.form group -->
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="envpath">Variáveis de Ambiente</label>
+                          <input type="text" class="form-control" name="envpath" id="envpath" placeholder="Ex: C:\oracle\app\product\11.2.0\client_1\BIN;">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group" style="margin-right: 10px;">
+                        <label class="form-check-label" for="active-task" title="Enviar email de alerta"
+                          style="cursor: pointer;font-weight: bold;margin-bottom: 10px;">Ativa</label><br>
+                        <input type="checkbox" id="active-task" name="active-task" data-bootstrap-switch
+                          data-on-color="info">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-check-label" for="only-open"
+                          title="Se marcado não encerrará o processo ao atingir o horário de encerramento"
+                          style="cursor: pointer;font-weight: bold;margin-bottom: 10px;">Abrir apenas?</label><br>
+                        <input type="checkbox" id="only-open" name="only-open" data-bootstrap-switch
+                          data-on-color="info">
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /.card-body -->
+
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-info">Salvar Tarefa</button>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+        <style>
+          .page-link {
+            background-color: #17a2b8 !important;
+            color: #FFF !important;
+            border: none;
+          }
+        </style>
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Tarefas Cadastradas</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="table-tasks" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                      <th>Tarefa</th>
+                      <th>Inicio</th>
+                      <th>Fim</th>
+                      <th>Ativa</th>
+                      <th>Editar</th>
+                      <th>Excluir</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-tasks">
+                    <tr>
+                      <td>N/D</td>
+                      <td>N/D</td>
+                      <td>N/D</td>
+                      <td> N/D</td>
+                      <td>N/D</td>
+                      <td>N/D</td>
+                    </tr>                  
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                      <th>Tarefa</th>
+                      <th>Inicio</th>
+                      <th>Fim</th>
+                      <th>Ativa</th>
+                      <th>Editar</th>
+                      <th>Excluir</th>
+                    </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+      <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Anything you want
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2020 <a href="https://customdata.com.br">CustomData</a>.</strong> All rights reserved.
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.min.js"></script>
+  <!-- Bootstrap Switch -->
+  <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+  <!-- InputMask -->
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- DataTables -->
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+
+
+  <script>
+     const ExecTask = require('../ExecTask')
+     const exectask = new ExecTask();
+     //console.log(exectask.testeTask())
+  
+  </script>
+
+
+
+  <!-- GERA O BOTAO ON / OFF  -->
+  <script>
+    $("input[data-bootstrap-switch]").each(function () {
+      $(this).bootstrapSwitch();
+    });
+
+    // AO SELECIONAR O EXECUTAVEL O NOME DO PROCESSO E CAMINHA SÃO PREENCHIDOS AUTOMATICAMENTE
+    $('.custom-file-input').on('change', function () {
+      let proc = document.getElementById("process");
+      let path = document.getElementById("pathfile");
+      var fileName = document.getElementById("inputFileJs").files[0].name;
+      //console.log(teste[0].path)
+      document.getElementById('file-label').innerText = fileName
+      proc.value = fileName;
+      path.value = document.getElementById("inputFileJs").files[0].path;
+      $(this).next('.form-control-file').addClass("selected").html(fileName);
+    })
+  </script>
+
+<!-- SCRIPT PARA CAPTURAR A HORA -->
+  <script>
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'HH:mm'
+    })
+    $('#timepicker1').datetimepicker({
+      format: 'HH:mm'
+    })
+  </script>
+
+
+  <!-- SCRIPT DA TABELA DE TAREFAS -->
+  <script>
+    $(function () {
+      $("#table-tasks").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+
+    });
+  </script>
+
+
+  <script>
+    const { ipcRenderer } = require('electron')
+    const log = require('electron-log');
+    const settingsTasks = document.getElementById('settings-tasks')
+    let tasksList =[];
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
+
+    //Get Tasks
+    ipcRenderer.on('tasks:get', (e, settings) => {
+      const tab = document.getElementById('tbody-tasks')  
+      let tabLines = "";
+      for(key in settings){
+        tabLines += '<tr><td>' + settings[key]['proc'] + '</td>' + '<td>' + settings[key]['start'] + '</td>' + '<td>' + settings[key]['end'] + '</td>' + '<td>' + settings[key]['active'] + '</td>' + '<td><button type="button" class="btn btn-block btn-info btn-sm" onClick="getDataFromTable(\''+settings[key]['_id']+'\')">Editar</button></td>' + '<td><button type="button" class="btn btn-block btn-danger btn-sm" onClick="removeDataFromTable('+settings[key]['_id']+')">Excluir</button></td>' + '</tr>'
+      }
+      tab.innerHTML = tabLines
+      tasksList = settings
+        
+    })
+
+    // Get data to Form
+    function getDataFromTable(id){
+      var newArray = tasksList.filter(function (el) {
+         return el._id == id
+      });
+      console.log(id)
+      console.log(newArray)
+      document.getElementById('process').value = newArray[0]['proc']
+      document.getElementById("pathfile"). value = newArray[0]['pathfile']
+      document.getElementById("inttime"). value = newArray[0]['intTime']
+      document.getElementById('starttime').value = newArray[0]['start']
+      document.getElementById('endtime').value =  newArray[0]['end']
+      document.getElementById('envpath').value = newArray[0]['envpath']
+      document.getElementById('_id').value =  newArray[0]['_id']
+      // ($('#active-task').bootstrapSwitch('state')) ? 1 : 0;
+      // ($('#only-open').bootstrapSwitch('state')) ? 1 : 0;
+      if(newArray[0]['active']){
+            $("#active-task").bootstrapSwitch();
+            $("#active-task").bootstrapSwitch('state', true);
+          }else{
+            $("#active-task").bootstrapSwitch();
+            $("#active-task").bootstrapSwitch('state', false);
+      }
+      if(newArray[0]['onlyopen']){
+            $("#only-open").bootstrapSwitch();
+            $("#only-open").bootstrapSwitch('state', true);
+          }else{
+            $("#only-open").bootstrapSwitch();
+            $("#only-open").bootstrapSwitch('state', false);
+      }
+    }
+
+    function removeDataFromTable(id){
+      let _id = id
+      var newArray = tasksList.filter(function (el) {
+         return el._id == id
+      });
+      const proc = newArray[0]['proc']
+      ipcRenderer.send('removetasks:set', {        
+        _id,
+        proc
+      })
+      //log.info('Tarefa Excluída - [Excluir TAREFA]');
+      showAlerts('Tarefa Excluída com sucesso!')
+    }
+
+
+    //submit task settings
+    settingsTasks.addEventListener('submit', e => {
+      e.preventDefault()
+      const proc = document.getElementById('process').value
+      const intTime = document.getElementById('inttime').value
+      const pathfile = document.getElementById('pathfile').value
+      const start = document.getElementById('starttime').value
+      const end = document.getElementById('endtime').value
+      const envpath = document.getElementById('envpath').value
+      const _id = document.getElementById('_id').value
+      const active = ($('#active-task').bootstrapSwitch('state')) ? 1 : 0;
+      const onlyopen = ($('#only-open').bootstrapSwitch('state')) ? 1 : 0;
+      
+      //send new settings to main process
+        ipcRenderer.send('tasks:set', {
+        proc,
+        intTime,
+        pathfile,
+        start,
+        end,
+        envpath,
+        active,
+        onlyopen,
+        _id
+      })
+
+      
+      //exectask.stopTasks(_id)
+      ipcRenderer.send('resettask:set', {
+        proc:proc
+      })
+      //exectask.updateData()
+      //process.exit(1)
+      settingsTasks.reset()
+      document.getElementById('_id').value = 0
+      //log.info('Tarefa ' + proc + 'Salva - [ADICIONAR TAREFA]');
+      showAlerts('Tarefa Salva com sucesso!')
+    })
+
+
+    function pararDolphin(){
+      exectask.stopTasks()
+    }
+
+    // //Show alert for settings
+    function showAlerts(msg) {
+      Toast.fire({
+        icon: 'success',
+        title: msg
+      })
+    }
+  </script>  
+
+
+
+</body>
+
+</html>
