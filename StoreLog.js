@@ -1,41 +1,34 @@
 const electron = require('electron')
 const path = require('path')
 const fs = require('fs')
-const readline = require('readline');
 
-let teste = [];
-
-class Logs{
+class StoreServices{
     constructor(options){
         const userDataPath = (electron.app || electron.remote.app).getPath('userData')
-        this.path = path.join(userDataPath, options)     
+
+        this.path = path.join(userDataPath, options)
         if (fs.existsSync(this.path)) {
             this.data = parseDataFile(this.path)
-        }                  
+        }   
     }
 
-    get(key){
+    get(){
         return this.data
     }
 
-    delete(){
-        try{
-            fs.unlinkSync(this.path)
-        }catch(err){
-            console.log(err)
-        }
+    set(val){
+            fs.writeFileSync(this.path, JSON.stringify(val))
+          
     }
 
 }
 
 function parseDataFile(filePath, defaults){
     try{
-        return fs.readFileSync(filePath, "utf8")
+        return JSON.parse(fs.readFileSync(filePath))
     }catch(err){
-        return err
+        return defaults
     }
 }
 
-
-
-module.exports = Logs
+module.exports = StoreServices

@@ -54,11 +54,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40;
   }
+  .frameApp{
+  width: 100%;
+  height: 30px;
+  background-color: #343a40;
+  -webkit-app-region: drag;
+  border-bottom: 1px solid #4e545a !important;
+  z-index: 1000;
+}
 </style>
-
 <body class="hold-transition sidebar-mini">
-  <div class="teste"
-    style="width: 100%;height: 30px;background-color: #343a40;-webkit-app-region: drag;border-bottom: 1px solid #4e545a !important;">
+  <div class="frameApp fixed-top">
     <div class="row">
       <div class="col-6">
         <li style="list-style: none;margin-left: 22px;color: rgb(148, 148, 148);">
@@ -66,34 +72,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </li>
       </div>
       <div class="col-6">
-        <li
-          style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
-          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-minus-square"></i></a>
-          <a style="margin-right: 5px;cursor: pointer;"><i class="fas fa-window-maximize"></i></a>
-          <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-window-close"></i></a>
+        <li style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('hide')"><i class="far fa-minus-square"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('full')"><i class="fas fa-window-maximize"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('hide')"><i class="far fa-window-close"></i></a>
         </li>
       </div>
     </div>
   </div>
-  <div class="wrapper">
-
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark" style="-webkit-app-region: drag">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav" style="-webkit-app-region: no-drag;">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="index.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
-        </li>
-      </ul>
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark fixed-top" style="-webkit-app-region: drag;margin-top: 30px;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav" style="-webkit-app-region: no-drag;">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+      <!-- <li class="nav-item d-none d-sm-inline-block">
+        <a href="#" class="nav-link">Contact</a>
+      </li> -->
+    </ul>
 
       <!-- SEARCH FORM -->
-      <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
+      <!-- <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
         <div class="input-group input-group-sm">
           <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
           <div class="input-group-append">
@@ -102,73 +106,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </button>
           </div>
         </div>
-      </form>
+      </form> -->
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto" style="-webkit-app-region: no-drag;">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <i class="far fa-comments"></i>
-            <span class="badge badge-danger navbar-badge">3</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-          </div>
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">15</span>
+            <span class="badge badge-danger navbar-badge">15</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <span class="dropdown-header">15 Notifications</span>
@@ -190,22 +135,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-              class="fas fa-th-large"></i></a>
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i class="fas fa-th-large"></i> Contato</a>
         </li>
       </ul>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="z-index: 900;">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-          style="opacity: .8">
-        <span class="brand-text font-weight-light">Jarvis Manager</span>
+      <a href="index.html" class="brand-link fixed-top" style="margin-top: 30px; background-color: #343a40;">
+        <img src="img/jarvis-info.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .4">
+        <span class="brand-text font-weight-light">Bem vindo ao Jarvis</span>
       </a>
 
       <!-- Sidebar -->
@@ -243,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Simple Link
+                  customdata
                   <!-- <span class="right badge badge-danger">New</span> -->
                 </p>
               </a>
@@ -287,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="margin-top: 80px;">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
@@ -325,7 +268,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form" id="settings-tasks">
+                <form role="form" id="settings-services">
                   <div class="card-body">
                     <div class="form-group">
                       <input type="text" class="custom-file-input" name="_id" id="_id" value="0" hidden>
@@ -334,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="col-lg-9">
                             <div class="form-group">
                                 <label>Selecione o serviço</label>
-                                <select class="form-control select2" id="service-list" style="width: 100%;"></select>
+                                <select class="form-control select2" id="service-list" name="service-list" style="width: 100%;"></select>
                             </div>
                         </div>
                       <div class="col-lg-3">
@@ -347,9 +290,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>                    
                     <div class="row">
                       <div class="form-group" style="margin-left: 10px;">
-                        <label class="form-check-label" for="active-task" title="Enviar email de alerta"
+                        <label class="form-check-label" for="active-service" title="Enviar email de alerta"
                           style="cursor: pointer;font-weight: bold;margin-bottom: 10px;">Ativo</label><br>
-                        <input type="checkbox" id="active-task" name="active-task" data-bootstrap-switch
+                        <input type="checkbox" id="active-service" name="active-service" data-bootstrap-switch
                           data-on-color="info">
                       </div>
                     </div>
@@ -389,19 +332,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <thead>
                     <tr>
                       <th>Serviço</th>
-                      <th>Inicio</th>
-                      <th>Fim</th>
-                      <th>Ativa</th>
+                      <th>Intervalo</th>
+                      <th>Ativo</th>
                       <th>Editar</th>
                       <th>Excluir</th>
                     </tr>
                     </thead>
-                    <tbody id="tbody-tasks">
+                    <tbody id="tbody-services">
                     <tr>
                       <td>N/D</td>
                       <td>N/D</td>
                       <td>N/D</td>
-                      <td> N/D</td>
                       <td>N/D</td>
                       <td>N/D</td>
                     </tr>                  
@@ -409,14 +350,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <tfoot>
                     <tr>
                       <th>Serviço</th>
-                      <th>Inicio</th>
-                      <th>Fim</th>
-                      <th>Ativa</th>
+                      <th>Intervalo</th>
+                      <th>Ativo</th>
                       <th>Editar</th>
                       <th>Excluir</th>
                     </tr>
                     </tfoot>
                   </table>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+
+
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="card card-info">
+                <div class="card-header">
+                  <h3 class="card-title">Status dos Serviços</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row" id="status-services">
+
+                    <div class="col-sm-4">
+                      <div class="position-relative p-3 bg-gray" style="height: 230px;border-radius: 5px;">
+                          <div class="ribbon-wrapper ">
+                            <div class="ribbon bg-info">Ativo</div>
+                          </div>
+                          Nome do serviço <br />
+                          <div class="form-group">
+                              <textarea class="form-control" rows="5">[Verificando...]</textarea>
+                          </div>
+                          <div class="row">
+                              <div class="col-6">
+                                  <button type="button" class="btn btn-block btn-info btn-sm" >Iniciar</button>
+                              </div>
+                              <div class="col-6">
+                                  <button type="button" class="btn btn-block btn-danger btn-sm">Parar</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  </div>
                 </div>
               </div>
               <!-- /.card -->
@@ -444,7 +427,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <footer class="main-footer">
       <!-- To the right -->
       <div class="float-right d-none d-sm-inline">
-        Anything you want
+        Jarvis Manager
       </div>
       <!-- Default to the left -->
       <strong>Copyright &copy; 2020 <a href="https://customdata.com.br">CustomData</a>.</strong> All rights reserved.
@@ -486,12 +469,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
     // console.log(services.getServices())
     const list = document.getElementById('service-list')
 
+        if(process.env.LANG == 'pt_BR.UTF-8'){
+          scquery = 'sc queryex type=service state=all | find /i "NOME_DO_SERVIÇO:"' 
+        }else if(process.env.LANG == null || process.env.LANG == 'undefined' || process.env.LANG == ''){
+          scquery = 'sc queryex type=service state=all | find /i "NOME_DO_SERVIÇO:"'          
+        }else{
+          scquery =  'sc queryex type=service state=all | find /i "SERVICE_NAME:"'
+        }
 
-    let scquery = (process.env.LANG == 'pt_BR.UTF-8') ? 'sc queryex type=service state=all | find /i "NOME_DO_SERVIÇO:"' : 'sc queryex type=service state=all | find /i "SERVICE_NAME:"'
-        let vrau;
         exec(scquery, (err, stdout, stderr) => {
-            if (err) {return;}         
-            
+            if (err) {console.log(err);}         
             let teste = stdout.split("\n")
         
               let servicelist = "";
@@ -503,16 +490,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         });
 
-
-    // let servicelist = "";
-    // for(key in teste){
-    //     servicelist += '<option>'+teste[key]['proc']+'</option>'
-    // }
-    // list.innerHTML = servicelist
-    //console.log(exectask.testeTask())
  
  </script>
-
 
 
   <!-- GERA O BOTAO ON / OFF  -->
@@ -529,12 +508,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
         "responsive": true,
         "autoWidth": false,
       });
-
     });
   </script>
 
 
+
   <script>
+    const { ipcRenderer } = require('electron')
+    const CronJob = require('cron').CronJob;
+    const settingsServices = document.getElementById('settings-services')
+    let servicesList =[];
+    let crons = {}
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -543,8 +527,228 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
 
 
+    //Get Services
+    ipcRenderer.on('services:get', (e, settings) => {
+          const tab = document.getElementById('tbody-services')  
+          const ribbons = document.getElementById('status-services')
+          let jobsToDoList = []          
+          let tabLines = "";
+          let ativo = "";
+          for(key in settings){
+            ativo = (settings[key]['active']) ? '<td style="color: green !important;">Sim</td>' : '<td style="color: red !important;">Não</td>'
+            tabLines += '<tr><td>' + settings[key]['serviceName'] + '</td>' + '<td>' + settings[key]['intTime'] + '</td>' +  ativo  + '<td><button type="button" class="btn btn-block btn-info btn-sm" onClick="getDataFromTable(\''+settings[key]['_id']+'\')">Editar</button></td>' + '<td><button type="button" class="btn btn-block btn-danger btn-sm" onClick="removeDataFromTable('+settings[key]['_id']+')">Excluir</button></td>' + '</tr>'
+          }
+          tab.innerHTML = tabLines
+          servicesList = settings
 
 
+          let forribbons = "";
+          let ativo1 = "";
+          let count = 0;
+          //sc query nome do serviço
+          for(key in settings){            
+            ativo1 = (settings[key]['active']) ? '<div class="ribbon bg-info">Ativo</div>' : '<div class="ribbon bg-danger">Inativo</div>'
+            forribbons += '<div class="col-sm-4"><div class="position-relative p-3 bg-gray" style="height: 230px;border-radius: 5px;"><div class="ribbon-wrapper ">'+ ativo1 +'</div> '+  settings[key]['serviceName'] +' <br /> <div class="form-group"><textarea class="form-control" id="outputService'+settings[key]['_id']+'" rows="5">[Verificando...]</textarea></div> <div class="row"> <div class="col-6"><button type="button" class="btn btn-block btn-info btn-sm" onClick="startService(\''+settings[key]['_id']+'\')">Iniciar</button></div> <div class="col-6"><button type="button" class="btn btn-block btn-danger btn-sm" onClick="stopService(\''+settings[key]['_id']+'\')">Parar</button></div> </div>   </div></div>'
+
+            jobsToDoList.push({
+                id: settings[key]['_id'],
+                active: settings[key]['active'],
+                name: settings[key]['serviceName'],
+                cron: '*/'+settings[key]['intTime']+' * * * * *'
+            })
+
+          }
+          ribbons.innerHTML = forribbons
+
+          cronServices(jobsToDoList)
+
+    })
+
+    function cronServices(jobsToDoList){
+
+      jobsToDoList.forEach( (job, idx) => {
+            crons[idx] = new CronJob(job.cron, () => { 
+              if(job.active){
+                exec('sc query '+job.name, (err, stdout, stderr) => { 
+                 if (err) { return; }   
+                 if(stdout.indexOf("RUNNING") != -1 || stdout.indexOf("RUNNING") != -1){
+                    document.getElementById('outputService'+job.id).value = '['+job.name+']' + ' rodando...'
+                 }else{
+                    // document.getElementById('outputService'+job.id).value = '['+job.name+']' + ' ESTÁ PARADO...' + '\r\n'
+                    // document.getElementById('outputService'+job.id).value += '======================================' + '\r\n'
+                    // document.getElementById('outputService'+job.id).value += stdout + '\r\n'
+                    // document.getElementById('outputService'+job.id).value += '======================================' + '\r\n'
+                    // document.getElementById('outputService'+job.id).value += 'Abrindo -> ' + '['+job.name+']' + '\r\n'
+
+                    exec('sc start '+job.name, (err, stdout1, stderr) => {
+                      if (err) { console.log(err); }   
+                      if(stdout1.indexOf("negado") != -1 || stdout1.indexOf("denied") != -1){
+                        document.getElementById('outputService'+job.id).value = 'privilégios insuficientes para iniciar o serviço' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += '======================================' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += stdout1
+                      }else if(stdout1.indexOf("INICIO_PENDENTE") != -1 || stdout1.indexOf("START_PENDING") != -1){
+                        document.getElementById('outputService'+job.id).value = 'O serviço está sendo iniciado' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += '======================================' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += stdout1
+                      }else if(stdout1.indexOf("FALHA") != -1 || stdout1.indexOf("ERROR") != -1){
+                        document.getElementById('outputService'+job.id).value = 'Não foi possível iniciar o serviço' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += '======================================' + '\r\n'
+                        document.getElementById('outputService'+job.id).value += stdout1
+                      }
+                      
+                    });
+
+                 }                 
+               });
+
+              }else{
+                document.getElementById('outputService'+job.id).value = 'Monitoramento do serviço ' + '[' + job.name + ']' + ' está desativado'
+              }            
+            }, null, true, 'America/Sao_Paulo')
+          })  
+    }
+
+    function stopServices(serviceName){
+
+        for (let prop in crons) {
+            crons[prop].stop()            
+        }
+        crons = {}
+
+        exec('sc stop '+serviceName, (err, stdout, stderr) => {
+            if (err) { console.log(err); }                             
+            console.log(stdout)
+        });
+
+    }
+
+    //Start Service 
+    function startService(id){
+      //let _id = id
+      var newArray = servicesList.filter(function (el) {
+         return el._id == id
+      });
+      
+      ipcRenderer.send('services:set', {
+        serviceName: newArray[0]['serviceName'],
+        intTime: newArray[0]['intTime'],
+        active: 1,
+        _id: newArray[0]['_id']
+      })
+    
+      ipcRenderer.send('resetservices:set', {
+        serviceName:newArray[0]['serviceName']
+      })
+      stopServices(newArray[0]['serviceName'])
+      settingsServices.reset()
+      document.getElementById('_id').value = 0
+      //log.info('Tarefa ' + proc + 'Salva - [ADICIONAR TAREFA]');
+      showAlerts('Serviço iniciado e salvo com sucesso!')
+
+
+      const name = newArray[0]['serviceName']
+      document.getElementById('outputService'+id).value = 'O serviço ' + '['+name+']' + ' está sendo iniciado' + '\r\n'
+      document.getElementById('outputService'+id).value += '======================================' + '\r\n'
+      exec('sc start '+name, (err, stdout, stderr) => {
+                      if (err) { console.log(err); }                             
+                      document.getElementById('outputService'+id).value += stdout
+      });
+    }
+
+    //stop Service 
+    function stopService(id){
+      //let _id = id
+      var newArray = servicesList.filter(function (el) {
+         return el._id == id
+      });
+
+      ipcRenderer.send('services:set', {
+        serviceName: newArray[0]['serviceName'],
+        intTime: newArray[0]['intTime'],
+        active: 0,
+        _id: newArray[0]['_id']
+      })
+    
+      ipcRenderer.send('resetservices:set', {
+        serviceName:newArray[0]['serviceName']
+      })
+      stopServices(newArray[0]['serviceName'])
+      settingsServices.reset()
+      document.getElementById('_id').value = 0
+      //log.info('Tarefa ' + proc + 'Salva - [ADICIONAR TAREFA]');
+      showAlerts('Serviço iniciado e salvo com sucesso!')
+
+      document.getElementById('outputService'+id).value = 'O serviço ' + '['+newArray[0]['serviceName']+']' + ' está sendo finalizado' + '\r\n'
+      document.getElementById('outputService'+id).value += '======================================' + '\r\n'
+      exec('sc stop '+newArray[0]['serviceName'], (err, stdout, stderr) => {
+        if (err) { console.log(err); }                             
+        document.getElementById('outputService'+id).value += stdout
+      });
+    }    
+
+    //submit service settings
+    settingsServices.addEventListener('submit', e => {
+      e.preventDefault()
+      const serviceName = document.getElementById('service-list').value
+      console.log(serviceName)
+      const intTime = document.getElementById('inttime').value
+      const _id = document.getElementById('_id').value
+      const active = ($('#active-service').bootstrapSwitch('state')) ? 1 : 0;
+      
+      //send new settings to main process
+        ipcRenderer.send('services:set', {
+        serviceName,
+        intTime,
+        active,
+        _id
+      })
+    
+      ipcRenderer.send('resetservices:set', {
+        serviceName:serviceName
+      })
+      stopServices(serviceName)
+      settingsServices.reset()
+      document.getElementById('_id').value = 0
+      //log.info('Tarefa ' + proc + 'Salva - [ADICIONAR TAREFA]');
+      showAlerts('Serviço Salvo com sucesso!')
+    })
+
+    
+
+    // Get data to Form
+    function getDataFromTable(id){
+      const list = document.getElementById('service-list')
+      var newArray = servicesList.filter(function (el) {
+         return el._id == id
+      });
+      console.log(id)
+      console.log(newArray)
+      list.innerHTML = '<option>'+newArray[0]['serviceName']+'</option>'
+      document.getElementById('inttime').value = newArray[0]['intTime']
+      document.getElementById('_id').value =  newArray[0]['_id']
+      if(newArray[0]['active']){
+            $("#active-service").bootstrapSwitch();
+            $("#active-service").bootstrapSwitch('state', true);
+          }else{
+            $("#active-service").bootstrapSwitch();
+            $("#active-service").bootstrapSwitch('state', false);
+      }
+    }
+
+
+    function removeDataFromTable(id){
+      let _id = id
+      var newArray = servicesList.filter(function (el) {
+         return el._id == id
+      });
+      const serviceName = document.getElementById('service-list').value
+      ipcRenderer.send('removeservices:set', {        
+        _id,
+        serviceName
+      })
+      //log.info('Tarefa Excluída - [Excluir TAREFA]');
+      showAlerts('Serviço Excluído com sucesso!')
+    }
 
 
 

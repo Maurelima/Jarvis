@@ -3,6 +3,7 @@ const { ipcRenderer } = require('electron')
 const osu = require('node-os-utils')
 const log = require('electron-log')
 const nodemailer = require('nodemailer');
+const notifier = require('node-notifier');
 const fs = require('fs')
 const cpu = osu.cpu
 const mem = osu.mem
@@ -56,11 +57,11 @@ setInterval(() =>{
 
         //Check overload
         if(info >= cpuOverload && runNotify(alertFrequency)){
-            notifyUser({
+            notifier.notify({
                 title: 'Sobrecarga na CPU',
-                body: `CPU está acima de ${cpuOverload}%`,
-                icon: path.join(__dirname, 'img', 'jarvis-danger.png'),
-            })   
+                message: `CPU está acima de ${cpuOverload}%`,
+                icon: path.join(__dirname, 'img', 'robot.png'),
+            });
             
             localStorage.setItem('lastNotify', +new Date())
         }
@@ -140,12 +141,6 @@ function runLog(frequency) {
        false
    }
  }
-
-
-//Send notification 
-function notifyUser(options){
-    new Notification(options.title, options)
-}
 
 //Check time past since last notification
  function runNotify(frequency) {

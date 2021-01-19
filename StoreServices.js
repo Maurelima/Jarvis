@@ -2,11 +2,11 @@ const electron = require('electron')
 const path = require('path')
 const fs = require('fs')
 
-class StoreTasks{
+class StoreServices{
     constructor(options){
         const userDataPath = (electron.app || electron.remote.app).getPath('userData')
 
-        this.path = path.join(userDataPath, 'tasks.json')
+        this.path = path.join(userDataPath, 'services.json')
         if (fs.existsSync(this.path)) {
             this.data = parseDataFile(this.path)
         }   
@@ -18,7 +18,6 @@ class StoreTasks{
 
     set(val){
         if (fs.existsSync(this.path)) {
-
             this.data = parseDataFile(this.path)
             if(val['_id'] == 0){
                 let maxId = Math.max.apply(Math, this.data.map(function(o) { return o._id; }))
@@ -64,4 +63,4 @@ function parseDataFile(filePath, defaults){
     }
 }
 
-module.exports = StoreTasks
+module.exports = StoreServices

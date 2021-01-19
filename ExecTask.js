@@ -1,20 +1,19 @@
 const electron = require('electron')
 const path = require('path')
 const fs = require('fs')
-//const cron = require("node-cron");
-const { ipcRenderer } = require('electron')
 const CronJob = require('cron').CronJob;
 const StoreTasks = require('./StoreTasks')
-const procs = require("find-process");
-const { spawn, exec } = require('child_process');
+const StoreLog = require('./StoreLog')
+const { exec } = require('child_process');
 const { isAfter, isBefore, isEqual, getDate } = require('date-fns');
 const { utcToZonedTime } = require('date-fns-tz')
-var kill = require('tree-kill');
 const Store = require('./Store')
 const log = require('electron-log');
-const { exception } = require('console');
 const timeZone = 'America/Sao_Paulo'
+const notifier = require('node-notifier');
 let crons = {}
+
+
 
 class ExecTask{
 
@@ -32,18 +31,19 @@ class ExecTask{
     updateData(){
             const storetasks = new StoreTasks();
             this.data = storetasks.get()
-            //console.log(this.data)
     }
 
     get(){
         return this.data
     }
 
-    testeTask(){
+    schedTask(){
 
         try{ 
-
-        let data = this.get()                      
+            
+        let data = this.get()   
+        
+        if(data != null && data != 'undefined'){        
 
         let jobsToDoList = []
 
@@ -82,31 +82,24 @@ class ExecTask{
 
                 if(job.active){
 
-                    // let datenow = new Date().toJSON().slice(0,10);          
-                    // let date1 = utcToZonedTime(new Date(datenow+' ' + start), timeZone)
-                    // let date2 = utcToZonedTime(new Date(datenow+' ' + end), timeZone)             
-                    // let date3 = utcToZonedTime(new Date(), timeZone); 
-
                     if(job.onlyopen){
                         if(inTime(job.start, job.end)){
                             exec('TASKLIST /FI "IMAGENAME eq '+job.proc+'"', (err, stdout, stderr) => {
                                 if (err) {
-                                return;
+                                    this.setLog(err)  
                                 }                          
                                 //se não encontrar tarefa, à abre (-1 significa que encontrou / diferente de -1 não encontrou)
                                 if(stdout.indexOf("nenhuma tarefa") != -1 || stdout.indexOf("No tasks") != -1){
-                                    let opts={
-                                        env: {
-                                            PATH: job.envpath+process.env.path
-                                        },
-                                        detached: true,
-                                        stdio: 'ignore'
-                                    }
-                                    spawn('cmd.exe', ['/C', 'start /B '+job.pathfile], opts); 
-                                    console.log(job.proc+ ' iniciado')
+                                    let opts={  env: { PATH: job.envpath+process.env.path } }
+                                    //spawn('cmd.exe', ['/C', 'start /B '+job.pathfile], opts); 
+                                    exec('cmd.exe /C start /B '+job.pathfile, opts, (err, stdout, stderr) => {
+                                        if(err){this.setLog(err)}
+                                        //console.log(stdout)
+                                    })
+                                    //console.log(job.proc+ ' iniciado')
                 
                                 }else{
-                                    console.log(job.proc+' já está em execução')
+                                    //console.log(job.proc+' já está em execução')
                                 }
                             });
                         }
@@ -114,36 +107,32 @@ class ExecTask{
                         if(inTime(job.start, job.end)){
                             exec('TASKLIST /FI "IMAGENAME eq '+job.proc+'"', (err, stdout, stderr) => {
                                 if (err) {
-                                return;
+                                    this.setLog(err)  
                                 }                          
                                 //se não encontrar tarefa, à abre (-1 significa que encontrou / diferente de -1 não encontrou)
                                 if(stdout.indexOf("nenhuma tarefa") != -1 || stdout.indexOf("No tasks") != -1){
-                                    let opts={
-                                        env: {
-                                            PATH: job.envpath+process.env.path
-                                        },
-                                        detached: true,
-                                        stdio: 'ignore'
-                                    }
-                                    spawn('cmd.exe', ['/C', 'start /B '+job.pathfile], opts); 
-                                    console.log(job.proc+ ' iniciado')
+                                    let opts={  env: { PATH: job.envpath+process.env.path } }
+                                    //spawn('cmd.exe', ['/C', 'start /B '+job.pathfile], opts); 
+                                    exec('cmd.exe /C start /B '+job.pathfile, opts, (err, stdout, stderr) => {
+                                        if(err){this.setLog(err)}
+                                        console.log(stdout)
+                                    })
+                                    //console.log(job.proc+ ' iniciado')
                 
                                 }else{
-                                    console.log(job.proc+' já está em execução')
+                                    //console.log(job.proc+' já está em execução')
                                 }
                             });
                         }else{
                             if(ofTime(job.end)){
                                 exec('tasklist /FI "ImageName eq '+job.proc+'" /FI "Status eq Running" /FO LIST', (err, stdout, stderr) => {
                                     if (err) {
-                                    return;
+                                        this.setLog(err)  
                                     } 
                                     //se encontrar tarefa, fecha ela (-1 significa que encontrou / diferente de -1 não encontrou)
                                     if(stdout.indexOf("nenhuma tarefa") != -1 || stdout.indexOf("No tasks") != -1){                                                          
                                         //console.log(job.proc+ 'está fechado')
-                                    }else{ 
-                                        //let tmp = stdout.split('\n')
-                                        //let pid = tmp[2].split(':')                        
+                                    }else{                      
                                         exec('taskkill /F /IM '+job.proc, (err, stdout, stderr) => {
                                             console.log(stdout)
                                         });
@@ -157,13 +146,42 @@ class ExecTask{
 
             }, null, true, 'America/Sao_Paulo')
         })
-
         
-    }catch(err){
-        getLog(err)
     }
 
-    
+
+    }catch(err){
+        this.setLog(err)   
+    }
+    }
+
+    setLog(err){
+        let configs = this.getLog()
+        if(this.runNotify(configs['alertFrequency'], 'notfytime.json')){ 
+            notifier.notify({
+                title: 'Falha ao executar a Tarefa',
+                message: `Erro: ${err}%`,
+                icon: path.join(__dirname, 'app/img', 'robot.png'),
+            });
+        }
+
+        if(configs['makeLog']){
+            if(this.runNotify(configs['alertFrequency'], 'logtime.json')){
+                console.log(err.stack)
+                if(err.stack != 'undefined'){
+                    log.warn(err+"_break_")
+                }else{                    
+                    let logs = err.stack + "_break_"; 
+                    log.warn(logs);
+                }
+                               
+                
+                // if(configs['sendLog']){
+                //     //envia para o email
+                //     sendLogMail(String(logs))
+                // }
+            } 
+        } 
     }
 
     stopTasks(proc){
@@ -177,19 +195,53 @@ class ExecTask{
             console.log(stdout)
         });
 
-        this.updateData() 
-        
-        //  let data = this.get()                      
-
-        //  for(let i = 0; i < data.length; i++){         
-        //       var id = data[i]['_id'];
-        //       vet[id].stop()
-        //  }
-        //  vet = []
-
-        //dar um kill nos processos (ou apenas no processo editado)        
+        this.updateData()            
 
     }
+
+
+    getLog(){
+        let store = new Store({
+            configName: 'user-settings',
+            defaults: {
+              cpusettings: {
+                cpuOverload: 80,
+                alertFrequency: 5,
+                cpuEmail: 'mariocelso@customdata.com.br',
+                sendEmail: 1
+              },
+              logsettings:{
+                logEmail: 'mariocelso@customdata.com.br',
+                alertFrequency: '10',
+                makeLog: 1,
+                sendLog: 1
+              }
+            }
+          });
+    
+        return store.get('logsettings')
+    }
+
+
+     runNotify(frequency, file) {
+          let storelog = new StoreLog(file);
+          if(storelog.get() == null || storelog.get() == 'undefined'){
+            storelog.set(+new Date())
+            return true
+          }
+          const notifyTime = new Date(parseInt(storelog.get()))
+          const now = new Date()
+          const diffTime = Math.abs(now - notifyTime)
+          const minutesPassed = Math.ceil(diffTime / (1000 * 60))
+          if(minutesPassed > frequency){
+              storelog.set(+new Date())
+              return true
+          }else{
+              false
+          }
+     }
+
+ 
 
 }
 
@@ -230,58 +282,5 @@ function parseDataFile(filePath, defaults){
     }
 }
 
-function getLog(err){
-    let store = new Store({
-        configName: 'user-settings',
-        defaults: {
-          cpusettings: {
-            cpuOverload: 80,
-            alertFrequency: 5,
-            cpuEmail: 'maurelima@gmail.com',
-            sendEmail: 1
-          },
-          logsettings:{
-            logEmail: 'maurelima@gmail.com',
-            alertFrequency: '1',
-            makeLog: 1,
-            sendLog: 1
-          }
-        }
-      });
-
-    let configs = store.get('logsettings')
-
-    if(configs['makeLog']){
-        //if(runLog(configs['logFrequency'])){
-            let logs = err.stack + "_break_";
-            log.warn(logs);
-            ipcRenderer.send('legtext:set', 'alterado')
-            //localStorage.setItem('lastLog', +new Date())
-            if(configs['sendLog']){
-                //envia para o email
-                //sendLogMail(String(logs))
-                console.log('enviado')
-            }
-        //} 
-    }     
-}
-
-function runLog(frequency) {
-    if(localStorage.getItem('lastLog') === null){
-        //Store TimeStamp 
-        localStorage.setItem('lastLog', +new Date())
-        return true
-    }
-   const logTime = new Date(parseInt(localStorage.getItem('lastLog')))
-   const now = new Date()
-   const diffTime = Math.abs(now - logTime)
-   const minutesPassed = Math.ceil(diffTime / (1000 * 60))
-
-   if(minutesPassed > frequency){
-       return true
-   }else{
-       false
-   }
- }
 
 module.exports = ExecTask

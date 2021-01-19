@@ -44,28 +44,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
   ::-webkit-scrollbar-thumb:hover {
     background: #343a40; 
   }
-  </style>
-  <body class="hold-transition sidebar-mini">
-    <div class="teste" style="width: 100%;height: 30px;background-color: #343a40;-webkit-app-region: drag;border-bottom: 1px solid #4e545a !important;">
-      <div class="row">
-        <div class="col-6">
-          <li style="list-style: none;margin-left: 22px;color: rgb(148, 148, 148);">
-            <small>Desenvolvido por EzDev</small>
-          </li>
-        </div>
-        <div class="col-6">
-          <li style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
-            <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-minus-square"></i></a>
-            <a style="margin-right: 5px;cursor: pointer;"><i class="fas fa-window-maximize"></i></a>
-            <a style="margin-right: 5px;cursor: pointer;"><i class="far fa-window-close"></i></a>
-          </li>
-        </div>
+  .frameApp{
+  width: 100%;
+  height: 30px;
+  background-color: #343a40;
+  -webkit-app-region: drag;
+  border-bottom: 1px solid #4e545a !important;
+  z-index: 1000;
+}
+</style>
+<body class="hold-transition sidebar-mini">
+  <div class="frameApp fixed-top">
+    <div class="row">
+      <div class="col-6">
+        <li style="list-style: none;margin-left: 22px;color: rgb(148, 148, 148);">
+          <small>Desenvolvido por EzDev</small>
+        </li>
+      </div>
+      <div class="col-6">
+        <li style="list-style: none;float: right;color:rgb(179, 179, 179);padding: 2px 10px 2px 0px;-webkit-app-region: no-drag;">
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('hide')"><i class="far fa-minus-square"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('full')"><i class="fas fa-window-maximize"></i></a>
+          <a style="margin-right: 5px;cursor: pointer;" onclick="minz('hide')"><i class="far fa-window-close"></i></a>
+        </li>
       </div>
     </div>
+  </div>
 <div class="wrapper">
-  
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark" style="-webkit-app-region: drag">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-gray-dark fixed-top" style="-webkit-app-region: drag;margin-top: 30px;">
     <!-- Left navbar links -->
     <ul class="navbar-nav" style="-webkit-app-region: no-drag;">
       <li class="nav-item">
@@ -74,13 +81,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index.html" class="nav-link">Home</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
+      <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
-      </li>
+      </li> -->
     </ul>
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
+    <!-- <form class="form-inline ml-3" style="-webkit-app-region: no-drag;">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
@@ -89,73 +96,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </button>
         </div>
       </div>
-    </form>
+    </form> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto" style="-webkit-app-region: no-drag;">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-danger navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-header">15 Notifications</span>
@@ -177,22 +125,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-            class="fas fa-th-large"></i></a>
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i class="fas fa-th-large"></i> Contato</a>
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="z-index: 900;">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Jarvis Manager</span>
+    <a href="index.html" class="brand-link fixed-top" style="margin-top: 30px; background-color: #343a40;">
+      <img src="img/jarvis-info.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .4">
+      <span class="brand-text font-weight-light">Bem vindo ao Jarvis</span>
     </a>
 
     <!-- Sidebar -->
@@ -230,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Simple Link
+                customdata
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
@@ -274,7 +220,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="margin-top: 80px;">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -396,7 +342,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      Jarvis Manager
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2020 <a href="https://customdata.com.br">CustomData</a>.</strong> All rights reserved.
@@ -515,21 +461,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
       })
       }
 
-			// //Show alert for settings
-			// function showAlerts(msg){
-        
-			// 	const alert = document.getElementById('alert')
-			// 	alert.classList.remove('hide')
-			// 	alert.classList.add('alert')
-			// 	alert.innerText = msg
-
-			// 	setTimeout(()=> alert.classList.add('hide'), 3000)
-			// }
-
-			// //Toggle nav
-			// ipcRenderer.on('nav:toggle', ()=>{
-			// 	nav.classList.toggle('hide')
-			// })
+</script>
+<script>
+  function minz(prop){
+    if(prop === 'hide'){
+      ipcRenderer.send('min:set', 'minimizar')
+    }else{
+      ipcRenderer.send('max:set', 'maxmizar')
+    }
+    
+  }
 </script>
 </body>
 </html>
