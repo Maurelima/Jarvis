@@ -1,4 +1,4 @@
-<img src="https://github.com/Maurelima/steam-background/blob/master/public/img/capa.jpg" />
+<img src="https://github.com/Maurelima/Jarvis/blob/master/assets/img/capajarvis.jpg" />
 
 # Jarvis
 
